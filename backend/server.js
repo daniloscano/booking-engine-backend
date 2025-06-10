@@ -12,6 +12,7 @@ server.use(cors())
 
 databaseConnection()
 
+
 server.listen(PORT, () => {
     console.log(`Server up and running on port: ${PORT}`)
 })
