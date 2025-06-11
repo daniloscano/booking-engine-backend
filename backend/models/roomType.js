@@ -28,9 +28,23 @@ const RoomTypeSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        beds: [
+            {
+                bed_type: {
+                    type: String,
+                    required: true,
+                    enum: [ 'king', 'single', 'crib' ]
+                },
+                quantity: {
+                    type: mongoose.Schema.Types.Int32,
+                    required: true,
+                    default: 0
+                }
+            }
+        ],
         setup: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'roomSetup'
+            type: String,
+            required: true
         },
         services: [
             {
