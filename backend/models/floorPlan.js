@@ -18,7 +18,7 @@ const FloorPlanSchema = new mongoose.Schema(
             type: Number,
             required: true
         }
-    }, { timestamp: true, strict: true }
+    }, { timestamps: true, strict: true }
 )
 
 module.exports = mongoose.model('floor_plan', FloorPlanSchema, 'floor_plans')

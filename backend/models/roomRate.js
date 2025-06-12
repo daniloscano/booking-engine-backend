@@ -42,7 +42,7 @@ const RoomRateSchema = new mongoose.Schema(
             type: Number,
             required: true
         }
-    }, { timestamp: true, strict: true }
+    }, { timestamps: true, strict: true }
 )
 
 module.exports = mongoose.model('room_rate', RoomRateSchema, 'room_rates')

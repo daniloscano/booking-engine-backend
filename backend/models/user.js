@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'guest'
         }
-    }, { timestamp: true, strict: true }
+    }, { timestamps: true, strict: true }
 )
 
 UserSchema.pre('save', async function(next) {

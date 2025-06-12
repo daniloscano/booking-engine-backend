@@ -36,7 +36,7 @@ const RoomTypeSchema = new mongoose.Schema(
                     enum: [ 'king', 'single', 'crib' ]
                 },
                 quantity: {
-                    type: mongoose.Schema.Types.Int32,
+                    type: Number,
                     required: true,
                     default: 0
                 }
@@ -96,7 +96,7 @@ const RoomTypeSchema = new mongoose.Schema(
             type: Number,
             required: true
         }
-    }, { timestamp: true, strict: true }
+    }, { timestamps: true, strict: true }
 )
 
 module.exports = mongoose.model('room_type', RoomTypeSchema, 'room_types')
