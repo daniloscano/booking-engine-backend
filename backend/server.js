@@ -2,13 +2,16 @@ const express = require('express')
 require('dotenv').config()
 const cors = require('cors')
 const databaseConnection = require('./config/database')
-const PORT = 9099
+const PORT = process.env.PORT || 9099
 
+const errorHandler = require('./middlewares/errorHandler')
 
 const server = express()
 server.use(express.json())
 server.use(cors())
 
+
+server.use(errorHandler)
 
 databaseConnection()
 
