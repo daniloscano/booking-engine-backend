@@ -28,23 +28,9 @@ const RoomTypeSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        beds: [
-            {
-                bed_type: {
-                    type: String,
-                    required: true,
-                    enum: [ 'king', 'single', 'crib' ]
-                },
-                quantity: {
-                    type: Number,
-                    required: true,
-                    default: 0
-                }
-            }
-        ],
-        setup: {
-            type: String,
-            required: true
+        beds: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'room_bed'
         },
         services: [
             {
@@ -52,18 +38,7 @@ const RoomTypeSchema = new mongoose.Schema(
                 ref: 'roomService'
             }
         ],
-        images: [
-            {
-                title: {
-                    type: String,
-                    required: false
-                },
-                image_url: {
-                    type: String,
-                    required: true
-                }
-            }
-        ],
+        images: [],
         max_pax: {
             type: Number,
             required: true
