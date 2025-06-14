@@ -6,13 +6,9 @@ const FloorPlanSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        room_category: {
-            type: String,
-            required: true
-        },
-        room_setup: {
-            type: String,
-            required: true
+        room_type_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'room_type'
         },
         floor: {
             type: Number,

@@ -34,42 +34,17 @@ const GuestSchema = new mongoose.Schema(
             required: true,
             enum: [ 'male', 'female' ]
         },
-        street: {
-            type: String,
-            required: false
-        },
-        zip_code: {
-            type: String,
-            required: false
-        },
-        city: {
-            type: String,
-            required: false
-        },
-        region: {
-            type: String,
-            required: false
-        },
-        nation: {
-            type: String,
-            required: false
-        },
         date_of_birth: {
             type: Date,
             required: true
         },
-        doc_type: {
-            type: String,
-            required: false,
-            enum: [ 'id_card', 'driving_license', 'passport' ]
+        address_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'address'
         },
-        doc_number: {
-            type: String,
-            required: false
-        },
-        doc_expire: {
-            type: Date,
-            required: false
+        identity_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'identity'
         },
         vat_number: {
             type: String,

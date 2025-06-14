@@ -1,4 +1,4 @@
-const RoomType = require('../models/roomType')
+const RoomType = require('../models/roomsSetup/roomType')
 
 const create = async (body) => {
     const newRoomType = new RoomType(body)

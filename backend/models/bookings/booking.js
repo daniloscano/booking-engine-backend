@@ -10,27 +10,19 @@ const BookingSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'quote_request'
         },
-        master_guest: {
+        master_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'guest'
         },
-        guests: [
+        guests_ids: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'guest'
             }
         ],
-        room_type: {
-            type: String,
-            required: true
-        },
-        room_category: {
-            type: String,
-            required: true
-        },
-        room_number: {
-            type: Number,
-            required: false
+        room_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'floor_plan'
         },
         check_in: {
             type: Date,
@@ -68,18 +60,28 @@ const BookingSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        extra_ids: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'extra_service'
+            }
+        ],
         price: {
             type: Number,
             required: true
         },
-        deposit_paid: {
-            type: Boolean,
-            required: true,
-            default: false
+        extra_price: {
+            type: Number,
+            required: true
         },
-        deposit_paid_date: {
-            type: Date,
-            required: false
+        total_price: {
+            type: Number,
+            required: true
+        },
+        stage:  {
+            type: String,
+            required: true,
+            default: [ 'pending', 'confirmed', 'canceled' ]
         }
     }, { timestamps: true, strict: true}
 )

@@ -28,9 +28,9 @@ const RoomTypeSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        beds: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'room_bed'
+        layout: {
+            type: mongoose.Schema.Types.Mixed,
+            required: true
         },
         services: [
             {
