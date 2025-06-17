@@ -47,24 +47,14 @@ RoomBedSchema.pre('save', async function(next) {
 
 RoomBedSchema.pre('findOneAndUpdate', async function(next) {
     const update = this.getUpdate()
-    const set = update.$set || update
 
-    const king = set.king
-    const single = set.single
-    const crib = set.crib
-
-    if (!set) {
+    if (!update) {
         return next()
     }
 
     try {
-        const updatedLayout = generateLayout(king ?? 0, single ?? 0, crib ?? 0)
+        update.layout = generateLayout(update.king ?? 0, update.single ?? 0, update.crib ?? 0)
 
-        if (update.$set) {
-            update.$set.layout = updatedLayout
-        } else {
-            update.layout = updatedLayout
-        }
 
         this.setUpdate(update)
 
