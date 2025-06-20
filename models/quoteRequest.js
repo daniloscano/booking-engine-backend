@@ -3,10 +3,6 @@ const { generateQuoteCode } = require('../utils/quoteRequest')
 
 const QuoteRequestSchema = new mongoose.Schema(
     {
-        code: {
-            type: String,
-            required: false
-        },
         checkIn: {
             type: Date,
             required: true

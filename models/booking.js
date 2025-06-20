@@ -2,11 +2,6 @@ const mongoose = require('mongoose')
 
 const BookingSchema = new mongoose.Schema(
     {
-        code: {
-            type: String,
-            unique: true,
-            required: true
-        },
         quoteRequestId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'quoteRequest'
